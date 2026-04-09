@@ -1,0 +1,17 @@
+class ERC20Token:
+    def __init__(self, name, symbol, total):
+        self.name = name
+        self.symbol = symbol
+        self.total_supply = total
+        self.balances = {}
+
+    def transfer(self, to, amount):
+        if self.balances.get("owner",0)>=amount:
+            self.balances["owner"] -= amount
+            self.balances[to] = self.balances.get(to,0)+amount
+            return True
+        return False
+
+if __name__ == "__main__":
+    token = ERC20Token("TestCoin","TTC",1000000)
+    print(f"代币名称:{token.name}")
