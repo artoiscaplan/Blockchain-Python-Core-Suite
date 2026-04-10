@@ -7,6 +7,7 @@ class BlockReward:
         halvings = height // self.halving
         return self.initial / (2 ** halvings)
 
+
 if __name__ == "__main__":
     br = BlockReward()
     print(f"区块奖励:{br.get_reward(0)}")
